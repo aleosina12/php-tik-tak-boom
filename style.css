@@ -21,3 +21,16 @@ body {
     justify-content: center;
     margin: 12px;
 }
+
+
+.row{
+    width: calc(100% - 24px);
+     align-content: center;
+    justify-content: center;
+   
+}
+
+
+.container{
+  background-color: dimgray;
+}

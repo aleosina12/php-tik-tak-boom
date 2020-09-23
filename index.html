@@ -13,10 +13,16 @@
     <div class="row align-items-center">
         <div class="col col-md-8 offset-md-2">
             <div class="row">
-                <h1>Тик-так-бум</h1>
+                <h1 style="color: blue;">Тик-так-бум</h1>
+            </div>
+            <div  class="row">
+                <button style="width: 300px; background-color: darkblue; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;" id="btn_start">СТАРТ ИГРЫ</button>
+            </div>
+            <div  class="row">
+                <button style="width: 300px;" id="btn_finish">Конец игры!</button>
             </div>
             <div class="row">
-                <span class="alert alert-primary" id="gameStatusField">Игра идёт</span>
+                <span class="alert alert-primary" id="gameStatusField"></span>
             </div>
             <div class="row">
                 <div class="col">
@@ -40,6 +46,8 @@
     </div>
 </div>
 </div>
+
+<div id=timer></div>
 
 <script src="js/utils.js"></script>
 <script src="js/tikTakBoom.js"></script>
