@@ -1,14 +1,16 @@
 tikTakBoom = {
     init(
         tasks,
+        countOfPlayers,
+        duration,
         timerField,
         gameStatusField,
         textFieldQuestion,
         textFieldAnswer1,
         textFieldAnswer2
     ) {
-        this.boomTimer = 30;
-        this.countOfPlayers = 2;
+        this.boomTimer = duration;
+        this.countOfPlayers = countOfPlayers;
         this.tasks = JSON.parse(tasks);
 
         this.timerField = timerField;
@@ -18,19 +20,22 @@ tikTakBoom = {
         this.textFieldAnswer2 = textFieldAnswer2;
 
         this.needRightAnswers = 3;
+
     },
 
     run() {
         this.state = 1;
-
         this.rightAnswers = 0;
-
+        document.getElementById('gameStatusField').innerText = 'Игра идёт. ';
+       
         this.turnOn();
 
         this.timer();
     },
 
     turnOn() {
+
+
         this.gameStatusField.innerText += ` Вопрос игроку №${this.state}`;
 
         const taskNumber = randomIntNumber(this.tasks.length - 1);
@@ -44,9 +49,11 @@ tikTakBoom = {
     turnOff(value) {
         if (this.currentTask[value].result) {
             this.gameStatusField.innerText = 'Верно!';
+            this.boomTimer = this.boomTimer + 5;
             this.rightAnswers += 1;
         } else {
             this.gameStatusField.innerText = 'Неверно!';
+            this.boomTimer = this.boomTimer - 5;
         }
         if (this.rightAnswers < this.needRightAnswers) {
             if (this.tasks.length === 0) {
